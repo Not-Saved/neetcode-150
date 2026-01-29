@@ -1,15 +1,8 @@
 ﻿namespace leetcode;
 
-public static class Lc4
+public static class Lc0004MedianTwoSortedArrays
 {
-    public static void Run()
-    {
-        int[] nums1 = [1, 3, 6];
-        int[] nums2 = [0, 0];
-        Console.WriteLine(FindMedianSortedArrays(nums1, nums2));
-    }
-
-    private static double FindMedianSortedArrays(int[] nums1, int[] nums2)
+    public static double MedianTwoSortedArrays(int[] nums1, int[] nums2)
     {
         if (nums1.Length > nums2.Length)
         {
@@ -26,14 +19,15 @@ public static class Lc4
             var pYmax = (pY == 0) ? int.MinValue : nums2[pY - 1];
             var pXmin = (pX == nums1.Length) ? int.MaxValue : nums1[pX];
             var pYmin = (pY == nums2.Length) ? int.MaxValue : nums2[pY];
-   
+
             if (pXmax <= pYmin && pYmax <= pXmin)
             {
                 return (nums1.Length + nums2.Length) % 2 == 1
                     ? Math.Max(pXmax, pYmax)
                     : (Math.Max(pXmax, pYmax) + Math.Min(pXmin, pYmin)) / 2.0;
             }
-            else if (pXmax > pYmin)
+
+            if (pXmax > pYmin)
             {
                 r = pX - 1;
             }
@@ -42,7 +36,5 @@ public static class Lc4
                 l = pX + 1;
             }
         }
-
-        throw new ArgumentException("Input arrays are not sorted.");
     }
 }

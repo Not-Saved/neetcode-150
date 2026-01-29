@@ -1,41 +1,9 @@
-﻿namespace leetcode;
+﻿using leetcode.utils;
 
-public static class Lc2
+namespace leetcode;
+
+public static class Lc0002AddTwoNumbers
 {
-    public class ListNode
-    {
-        public readonly int Val;
-        public ListNode? Next;
-
-        public ListNode(int val = 0, ListNode? next = null)
-        {
-            Val = val;
-            Next = next;
-        }
-
-        public void Print()
-        {
-            var l = this;
-            var s = "";
-            while (l != null)
-            {
-                s = l.Val + s;
-                l = l.Next;
-            }
-
-            Console.WriteLine(s);
-        }
-    }
-
-    public static void Run()
-    {
-        var l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        var l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
-        var result = AddTwoNumbers(l1, l2);
-        result.Print();
-    }
-
-
     public static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
     {
         ListNode? result = null;
